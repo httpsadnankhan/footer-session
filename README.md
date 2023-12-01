@@ -1,8 +1,5 @@
 # footer-session
 Responsive Footer Design with Sleek Subscription Form - Boost User Engagement!
-Certainly! Here's a sample project description for your GitHub repository:
-
----
 
 ## Project Title
 
