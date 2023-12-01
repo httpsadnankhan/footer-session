@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Section</title>
+    <style>
+          * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: beige;
+            display: flex;
+            align-items: center;
+            overflow-x: hidden;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        footer {
+            height: auto;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%);
+            width: 100%;
+            color: #fff; /* Set text color to white for better visibility */
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            justify-content: space-between;
+            background: rgb(17,11,113);
+            background: linear-gradient(90deg, rgba(17,11,113,1) 0%, rgba(39,137,219,1) 72%);
+            height: 30%;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: -3%;
+        }
+
+        p {
+            color: white;
+            margin: 0;
+            font-size: 16px; /* Adjusted font size for better readability */
+        }
+
+        .subscription {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .add-email {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+            display: flex;
+        }
+
+        .add-email input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            font-size: 14px; /* Adjusted font size for better readability */
+        }
+
+        .add-email button {
+            border: none;
+            border-radius: 0 5px 5px 0;
+            outline: none;
+            cursor: pointer;
+            background: rgb(222, 168, 7);
+            color: #FFFFFF;
+            padding: 10px;
+            font-size: 14px; /* Adjusted font size for better readability */
+        }
+
+        .add-email button:hover {
+            background: #2d7f7f;
+        }
+
+        .submit-email {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            border: none;
+            border-radius: 60px;
+            outline: none;
+            margin-top: 10px;
+            cursor: pointer;
+            background: #4ABEBB;
+            color: #FFFFFF;
+            transition: width .35s ease-in-out, background .35s ease-in-out;
+            font-size: 16px; /* Adjusted font size for better readability */
+        }
+
+        .subscription.done .submit-email {
+            width: 100%;
+            background: #C0E02E;
+        }
+
+        .submit-email .before-submit,
+        .submit-email .after-submit {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 38px;
+            transition: visibility .35s ease-in-out, opacity .35s ease-in-out;
+        }
+
+        .subscription.done .submit-email .before-submit,
+        .subscription:not(.done) .submit-email .after-submit {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .submit-email .after-submit {
+            transition-delay: .35s;
+        }
+
+        .subscription:not(.done) .submit-email .before-submit,
+        .subscription.done .submit-email .after-submit {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            height: auto;
+            width: 95%;
+            justify-content: center;
+            text-align: center;
+            color: #fff; /* Set text color to white for better visibility */
+        }
+
+        .footer-col {
+            width: 100%;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            margin-top: 5%;
+        }
+
+        h2 {
+            color: #c6c6c6;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #fff; /* Updated link color to match the background for a clean look */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        .footer-author {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color:rgb(222, 168, 7);
+            height: auto;
+            width: 100%;
+            padding: 30px;
+        }
+
+        .footer-designed {
+            justify-content: center;
+            text-align: center;
+            width: 85%;
+        }
+
+        .footer-terms-ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        .footer-terms-ul li {
+            margin-right: 20px;
+            display: flex;
+            align-items: flex-end;
+        }
+        .footer-terms-ul li a {
+          color: rgb(226, 223, 223);
+        }
+       
+        .author-name{
+            color:rgb(2, 2, 32);
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-author {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                margin-top: -5%;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .form-container {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                margin-top: -8%;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .form-container {
+                width: 95%;
+            }
+
+            .footer-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            body {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 340px) {
+            .footer-container {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .footer-designed p {
+                font-size: 10px;
+            }
+
+            .footer-terms-ul {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <footer>
+        <div class="form-container">
+            <div class="newsletter-text">
+                <p>Subscribe to our newsletter for updates and promotions.</p>
+            </div>
+            <div class="newsletter-form">
+                <form class="subscription">
+                    <div class="add-email">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="button">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="footer-col">
+                <!-- Column 1: Logo and Text -->
+                <h2>Logo</h2>
+                <p>Some text about your company.</p>
+            </div>
+
+            <div class="footer-col">
+                <!-- Column 2: Links -->
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <!-- Add more links as needed -->
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <!-- Column 3: Resources -->
+                <h2>Resources</h2>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Support</a></li>
+                    <!-- Add more resource links as needed -->
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <!-- Column 4: Social Media -->
+                <h2>Social Media</h2>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <!-- Add more social media links as needed -->
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <!-- Column 4: Social Media -->
+                <h2>Social Media</h2>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <!-- Add more social media links as needed -->
+                </ul>
+            </div>
+        </div>
+        <div class="footer-author">
+            <div class="footer-designed">
+                <p>© Copyright A&J Associates. All Rights Reserved. Designed by <a href="" class="author-name">Adnan Khan</a></p>
+            </div>
+            <div class="footer-terms">
+                <ul class="footer-terms-ul">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                   
+                    <!-- Add more social media links as needed -->
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
